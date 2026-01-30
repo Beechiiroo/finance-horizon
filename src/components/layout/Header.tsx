@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bell, Search, User } from 'lucide-react';
+import { Search, User } from 'lucide-react';
 import { useSidebarState } from '@/context/SidebarContext';
+import { NotificationCenter } from '@/components/notifications/NotificationCenter';
 
 interface HeaderProps {
   title: string;
@@ -40,14 +41,7 @@ export function Header({ title, subtitle }: HeaderProps) {
           </div>
 
           {/* Notifications */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative w-10 h-10 rounded-xl bg-muted/50 hover:bg-muted flex items-center justify-center transition-colors"
-          >
-            <Bell className="w-5 h-5 text-muted-foreground" />
-            <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-destructive" />
-          </motion.button>
+          <NotificationCenter />
 
           {/* Profile */}
           <motion.button
