@@ -110,6 +110,10 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.feature2': 'Real-time Analytics',
     'auth.feature3': 'Smart Predictions',
     'auth.feature4': 'Multi-Currency Support',
+    'auth.continueWithApple': 'Continue with Apple',
+    'auth.stats.users': 'Active Users',
+    'auth.stats.uptime': 'Uptime',
+    'auth.stats.processed': 'Processed',
     
     // AI Assistant
     'ai.title': 'AI Financial Assistant',
@@ -242,6 +246,10 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.feature2': 'Analyses en Temps Réel',
     'auth.feature3': 'Prédictions Intelligentes',
     'auth.feature4': 'Support Multi-Devises',
+    'auth.continueWithApple': 'Continuer avec Apple',
+    'auth.stats.users': 'Utilisateurs Actifs',
+    'auth.stats.uptime': 'Disponibilité',
+    'auth.stats.processed': 'Traités',
     
     // AI Assistant
     'ai.title': 'Assistant IA Financier',
@@ -374,6 +382,10 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.feature2': 'Análisis en Tiempo Real',
     'auth.feature3': 'Predicciones Inteligentes',
     'auth.feature4': 'Soporte Multi-Moneda',
+    'auth.continueWithApple': 'Continuar con Apple',
+    'auth.stats.users': 'Usuarios Activos',
+    'auth.stats.uptime': 'Tiempo Activo',
+    'auth.stats.processed': 'Procesado',
     
     // AI Assistant
     'ai.title': 'Asistente IA Financiero',
@@ -506,6 +518,10 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.feature2': 'تحليلات فورية',
     'auth.feature3': 'تنبؤات ذكية',
     'auth.feature4': 'دعم متعدد العملات',
+    'auth.continueWithApple': 'المتابعة مع Apple',
+    'auth.stats.users': 'المستخدمون النشطون',
+    'auth.stats.uptime': 'وقت التشغيل',
+    'auth.stats.processed': 'تمت المعالجة',
     
     // AI Assistant
     'ai.title': 'المساعد المالي الذكي',
