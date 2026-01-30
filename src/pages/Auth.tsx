@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Lock, User, Eye, EyeOff, ArrowRight, Shield, Zap, BarChart3, Globe2, CheckCircle2, Fingerprint, Sparkles } from 'lucide-react';
+import { Mail, Lock, User, Eye, EyeOff, ArrowRight, Shield, Zap, BarChart3, Globe2, CheckCircle2, Fingerprint, Sparkles, Star, Award, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
@@ -19,6 +19,15 @@ import { PasswordStrength } from '@/components/auth/PasswordStrength';
 import { GlowingOrbs } from '@/components/auth/GlowingOrbs';
 import { AnimatedGrid } from '@/components/auth/AnimatedGrid';
 import { StatsDisplay } from '@/components/auth/StatsDisplay';
+import { MorphingBackground } from '@/components/auth/MorphingBackground';
+import { HexagonGrid } from '@/components/auth/HexagonGrid';
+import { PulsingRings } from '@/components/auth/PulsingRings';
+import { DataFlowLines } from '@/components/auth/DataFlowLines';
+import { FloatingCards } from '@/components/auth/FloatingCards';
+import { TypewriterText } from '@/components/auth/TypewriterText';
+import { NeonBorder } from '@/components/auth/NeonBorder';
+import { AnimatedLogo3D } from '@/components/auth/AnimatedLogo3D';
+import { GlassCard } from '@/components/auth/GlassCard';
 import financeErpLogo from '@/assets/finance-erp-logo.png';
 
 const loginSchema = z.object({
@@ -35,10 +44,18 @@ const signupSchema = loginSchema.extend({
 });
 
 const features = [
-  { icon: Shield, key: 'feature1' },
-  { icon: BarChart3, key: 'feature2' },
-  { icon: Zap, key: 'feature3' },
-  { icon: Globe2, key: 'feature4' },
+  { icon: Shield, key: 'feature1', gradient: 'from-blue-500 to-cyan-500' },
+  { icon: BarChart3, key: 'feature2', gradient: 'from-green-500 to-emerald-500' },
+  { icon: Zap, key: 'feature3', gradient: 'from-yellow-500 to-orange-500' },
+  { icon: Globe2, key: 'feature4', gradient: 'from-purple-500 to-pink-500' },
+];
+
+const typewriterTexts = [
+  'Financial Analytics',
+  'Real-time Insights',
+  'Smart Automation',
+  'Secure Banking',
+  'AI Predictions',
 ];
 
 export default function Auth() {
@@ -159,36 +176,33 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-background flex overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
       {/* Left Panel - Ultra Creative Animated Branding */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         className="hidden lg:flex lg:w-[55%] relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 30%, #0891b2 70%, #14b8a6 100%)',
+          background: 'linear-gradient(135deg, #0a0f1c 0%, #0f172a 25%, #1e3a5f 50%, #0f766e 75%, #134e4a 100%)',
         }}
       >
         {/* Multiple animated background layers */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent" />
+        <MorphingBackground />
+        <HexagonGrid />
+        <PulsingRings />
+        <DataFlowLines />
         <GlowingOrbs />
         <AnimatedGrid />
         <FloatingParticles />
         <FloatingElements />
+        <FloatingCards />
         
-        {/* Animated aurora effect */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              'radial-gradient(circle at 0% 0%, rgba(20, 184, 166, 0.3) 0%, transparent 50%)',
-              'radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
-              'radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.3) 0%, transparent 50%)',
-              'radial-gradient(circle at 0% 100%, rgba(20, 184, 166, 0.3) 0%, transparent 50%)',
-              'radial-gradient(circle at 0% 0%, rgba(20, 184, 166, 0.3) 0%, transparent 50%)',
-            ],
+        {/* Noise texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
         />
 
         <div className="relative z-10 flex flex-col justify-center p-12 xl:p-16 text-white w-full">
@@ -198,175 +212,223 @@ export default function Auth() {
             transition={{ delay: 0.2 }}
             className="max-w-xl"
           >
-            {/* Animated Logo with 3D effect */}
-            <motion.div
-              className="flex items-center gap-4 mb-12"
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.div
-                className="relative"
-                animate={{ 
-                  rotateY: [0, 10, 0, -10, 0],
-                }}
-                transition={{ duration: 8, repeat: Infinity }}
-              >
-                <motion.div
-                  className="w-20 h-20 rounded-3xl bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-xl border border-white/30 flex items-center justify-center overflow-hidden shadow-2xl"
-                  animate={{ 
-                    boxShadow: [
-                      '0 0 30px rgba(20, 184, 166, 0.3)',
-                      '0 0 60px rgba(59, 130, 246, 0.4)',
-                      '0 0 30px rgba(20, 184, 166, 0.3)',
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <img src={financeErpLogo} alt="Finance ERP" className="w-14 h-14 object-contain" />
-                </motion.div>
-                {/* Glow ring */}
-                <motion.div
-                  className="absolute -inset-2 rounded-[28px] border-2 border-white/20"
-                  animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.2, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </motion.div>
+            {/* 3D Animated Logo */}
+            <motion.div className="flex items-center gap-5 mb-12">
+              <AnimatedLogo3D />
               <div>
                 <motion.h1 
-                  className="text-4xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-teal-200 bg-clip-text text-transparent"
-                  animate={{ backgroundPosition: ['0%', '100%', '0%'] }}
-                  transition={{ duration: 5, repeat: Infinity }}
+                  className="text-4xl xl:text-5xl font-bold tracking-tight"
+                  style={{
+                    background: 'linear-gradient(135deg, #ffffff 0%, #94a3b8 50%, #ffffff 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
                 >
                   Finance ERP
                 </motion.h1>
-                <p className="text-sm text-white/60 mt-1">Enterprise Resource Planning</p>
+                <motion.p 
+                  className="text-sm text-white/50 mt-1 tracking-widest uppercase"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  Enterprise Resource Planning
+                </motion.p>
               </div>
             </motion.div>
 
-            {/* Main heading with gradient text */}
-            <motion.div className="mb-8">
+            {/* Main heading with typewriter effect */}
+            <motion.div className="mb-10">
               <motion.div
                 className="flex items-center gap-2 mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <Sparkles className="w-5 h-5 text-teal-300" />
-                <span className="text-sm font-medium text-teal-300 uppercase tracking-wider">
-                  AI-Powered Platform
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                >
+                  <Sparkles className="w-5 h-5 text-teal-400" />
+                </motion.div>
+                <span className="text-sm font-medium text-teal-400 uppercase tracking-wider">
+                  Next-Gen Platform
                 </span>
               </motion.div>
+              
               <motion.h2
-                className="text-5xl xl:text-6xl font-bold mb-6 leading-tight"
+                className="text-5xl xl:text-6xl font-bold mb-4 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <span className="bg-gradient-to-r from-white via-teal-100 to-cyan-200 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-white via-blue-100 to-teal-200 bg-clip-text text-transparent">
                   {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
                 </span>
               </motion.h2>
-              <motion.p
-                className="text-xl text-white/70 leading-relaxed"
+              
+              <motion.div
+                className="text-2xl text-white/60 mb-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
+              >
+                <TypewriterText 
+                  texts={typewriterTexts} 
+                  className="text-teal-300 font-semibold"
+                />
+              </motion.div>
+              
+              <motion.p
+                className="text-lg text-white/50 leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
               >
                 {isLogin ? t('auth.loginSubtitle') : t('auth.signupSubtitle')}
               </motion.p>
             </motion.div>
 
-            {/* Features grid with hover effects */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            {/* Features grid with 3D hover effects */}
+            <div className="grid grid-cols-2 gap-4 mb-10">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature.key}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + i * 0.1 }}
+                  transition={{ delay: 0.7 + i * 0.1 }}
                   whileHover={{ 
                     scale: 1.05, 
-                    backgroundColor: 'rgba(255,255,255,0.15)',
-                    borderColor: 'rgba(255,255,255,0.3)',
+                    rotateY: 5,
+                    z: 50,
                   }}
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 cursor-default transition-all"
+                  className="group relative cursor-pointer"
+                  style={{ transformStyle: 'preserve-3d' }}
                 >
-                  <motion.div 
-                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-400/30 to-blue-500/30 flex items-center justify-center"
-                    whileHover={{ rotate: 5 }}
-                  >
-                    <feature.icon className="w-6 h-6 text-teal-300" />
-                  </motion.div>
-                  <span className="text-sm font-medium">{t(`auth.${feature.key}`)}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
+                    style={{ background: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))` }}
+                  />
+                  <div className="relative flex items-center gap-3 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all group-hover:bg-white/10 group-hover:border-white/20">
+                    <motion.div 
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-lg`}
+                      whileHover={{ rotate: 10 }}
+                    >
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </motion.div>
+                    <span className="text-sm font-medium group-hover:text-white transition-colors">{t(`auth.${feature.key}`)}</span>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Live stats */}
+            {/* Live stats with enhanced design */}
             <StatsDisplay />
 
-            {/* Animated analytics preview */}
+            {/* Live analytics preview */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
-              className="mt-8 bg-white/5 backdrop-blur-md rounded-3xl p-6 border border-white/10"
+              className="mt-8 relative"
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-teal-300" />
-                  <span className="text-sm text-white/70">Performance Analytics</span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-teal-500/20 to-purple-500/20 rounded-[28px] blur-xl" />
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-6 border border-white/10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <BarChart3 className="w-4 h-4 text-teal-400" />
+                    <span className="text-sm text-white/70">Performance Analytics</span>
+                  </div>
+                  <motion.span 
+                    className="text-xs flex items-center gap-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 px-3 py-1.5 rounded-full border border-green-500/20"
+                    animate={{ opacity: [1, 0.6, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    Live
+                  </motion.span>
                 </div>
-                <motion.span 
-                  className="text-xs text-green-400 flex items-center gap-1 bg-green-500/20 px-2 py-1 rounded-full"
-                  animate={{ opacity: [1, 0.6, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <CheckCircle2 className="w-3 h-3" /> Live
-                </motion.span>
+                <AnimatedChart />
+                <AnimatedLineChart />
               </div>
-              <AnimatedChart />
-              <AnimatedLineChart />
             </motion.div>
 
-            {/* Trust badge */}
+            {/* Trust badges with enhanced design */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.8 }}
-              className="mt-8 flex items-center gap-4"
+              className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
+              <div className="flex -space-x-3">
+                {['A', 'B', 'C', 'D', 'E'].map((letter, i) => (
                   <motion.div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-2 border-white/20 flex items-center justify-center text-xs font-bold"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 1.8 + i * 0.1 }}
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 border-2 border-slate-900 flex items-center justify-center text-xs font-bold shadow-lg"
+                    initial={{ scale: 0, x: -20 }}
+                    animate={{ scale: 1, x: 0 }}
+                    transition={{ delay: 1.8 + i * 0.1, type: 'spring' }}
+                    whileHover={{ scale: 1.2, zIndex: 10 }}
                   >
-                    {String.fromCharCode(64 + i)}
+                    {letter}
                   </motion.div>
                 ))}
               </div>
-              <div className="text-sm text-white/60">
-                <Shield className="w-4 h-4 inline mr-1" />
-                {t('auth.trustedBy')}
+              <div className="flex items-center gap-3 text-sm text-white/50">
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                  <span className="text-white font-semibold">4.9</span>
+                </div>
+                <span>•</span>
+                <span>{t('auth.trustedBy')}</span>
               </div>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Decorative blurs */}
-        <div className="absolute -bottom-48 -right-48 w-[500px] h-[500px] rounded-full bg-teal-500/10 blur-[100px]" />
-        <div className="absolute top-32 -right-32 w-64 h-64 rounded-full bg-blue-500/20 blur-[80px]" />
-        <div className="absolute bottom-48 -left-32 w-80 h-80 rounded-full bg-purple-500/10 blur-[100px]" />
+        {/* Decorative corner elements */}
+        <motion.div
+          className="absolute top-0 right-0 w-64 h-64"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-transparent to-transparent blur-3xl" />
+        </motion.div>
+        <motion.div
+          className="absolute bottom-0 left-0 w-96 h-96"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/20 via-transparent to-transparent blur-3xl" />
+        </motion.div>
       </motion.div>
 
-      {/* Right Panel - Form with Glassmorphism */}
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-background via-background to-muted/20 relative overflow-hidden">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(120,119,198,0.1),transparent_50%)]" />
+      {/* Right Panel - Form with Ultra Premium Glassmorphism */}
+      <div className="flex-1 flex flex-col relative overflow-hidden">
+        {/* Animated background for right panel */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/30" />
+          <motion.div
+            className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full"
+            style={{ background: 'radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 70%)' }}
+            animate={{ 
+              x: [0, 30, 0], 
+              y: [0, -30, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
+            style={{ background: 'radial-gradient(circle, hsl(var(--accent) / 0.08) 0%, transparent 70%)' }}
+            animate={{ 
+              x: [0, -20, 0], 
+              y: [0, 20, 0],
+              scale: [1, 1.15, 1],
+            }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          />
         </div>
 
         <div className="flex justify-end p-4 relative z-10">
@@ -386,34 +448,27 @@ export default function Auth() {
               animate={{ scale: 1, opacity: 1 }}
             >
               <motion.div
-                className="w-24 h-24 rounded-3xl gradient-primary flex items-center justify-center mx-auto mb-4 shadow-2xl overflow-hidden relative"
+                className="w-20 h-20 rounded-2xl gradient-primary flex items-center justify-center mx-auto mb-4 shadow-2xl overflow-hidden relative"
                 whileHover={{ rotate: 5 }}
-                animate={{ boxShadow: ['0 0 30px rgba(59,130,246,0.3)', '0 0 60px rgba(20,184,166,0.4)', '0 0 30px rgba(59,130,246,0.3)'] }}
+                animate={{ 
+                  boxShadow: [
+                    '0 0 30px rgba(59,130,246,0.3)', 
+                    '0 0 60px rgba(20,184,166,0.4)', 
+                    '0 0 30px rgba(59,130,246,0.3)'
+                  ] 
+                }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <img src={financeErpLogo} alt="Finance ERP" className="w-16 h-16 object-contain" />
+                <img src={financeErpLogo} alt="Finance ERP" className="w-12 h-12 object-contain" />
               </motion.div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-teal-500 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 {isLogin ? t('auth.login') : t('auth.signup')}
               </h1>
             </motion.div>
 
-            {/* Form card with premium glassmorphism */}
-            <motion.div
-              className="bg-card/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-border/50 relative overflow-hidden"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              {/* Decorative gradient border */}
-              <motion.div
-                className="absolute inset-0 rounded-3xl opacity-50"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(59,130,246,0.1) 0%, transparent 50%, rgba(20,184,166,0.1) 100%)',
-                }}
-              />
-
-              <div className="relative z-10">
+            {/* Form card with neon border */}
+            <NeonBorder>
+              <GlassCard>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <AnimatePresence mode="wait">
                     {!isLogin && (
@@ -430,7 +485,7 @@ export default function Auth() {
                             id="fullName"
                             type="text"
                             placeholder="John Doe"
-                            className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10"
+                            className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10 bg-background/50"
                             value={formData.fullName}
                             onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                           />
@@ -456,7 +511,7 @@ export default function Auth() {
                         id="email"
                         type="email"
                         placeholder="john@example.com"
-                        className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10"
+                        className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10 bg-background/50"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
@@ -478,7 +533,7 @@ export default function Auth() {
                       {isLogin && (
                         <button
                           type="button"
-                          className="text-xs text-primary hover:underline font-medium"
+                          className="text-xs text-primary hover:underline font-medium transition-colors hover:text-primary/80"
                           onClick={() => toast.info('Password reset coming soon!')}
                         >
                           {t('auth.forgotPassword')}
@@ -491,7 +546,7 @@ export default function Auth() {
                         id="password"
                         type={showPassword ? 'text' : 'password'}
                         placeholder="••••••••"
-                        className="pl-12 pr-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10"
+                        className="pl-12 pr-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10 bg-background/50"
                         value={formData.password}
                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                       />
@@ -535,7 +590,7 @@ export default function Auth() {
                             id="confirmPassword"
                             type={showPassword ? 'text' : 'password'}
                             placeholder="••••••••"
-                            className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10"
+                            className="pl-12 h-14 rounded-xl text-base transition-all border-2 focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10 bg-background/50"
                             value={formData.confirmPassword}
                             onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                           />
@@ -575,24 +630,33 @@ export default function Auth() {
                     </motion.div>
                   )}
 
+                  {/* Premium submit button */}
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Button
                       type="submit"
-                      className="w-full h-14 text-base font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary"
+                      className="w-full h-14 text-base font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all relative overflow-hidden group"
                       disabled={loading}
                     >
-                      {loading ? (
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                          className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
-                        />
-                      ) : (
-                        <>
-                          {isLogin ? t('auth.login') : t('auth.signup')}
-                          <ArrowRight className="w-5 h-5 ml-2" />
-                        </>
-                      )}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary"
+                        style={{ backgroundSize: '200% 100%' }}
+                        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                      />
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        {loading ? (
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                            className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
+                          />
+                        ) : (
+                          <>
+                            {isLogin ? t('auth.login') : t('auth.signup')}
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
+                      </span>
                     </Button>
                   </motion.div>
                 </form>
@@ -609,14 +673,14 @@ export default function Auth() {
                   </div>
                 </div>
 
-                {/* Social login buttons */}
+                {/* Social login buttons with enhanced styling */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* Google Button */}
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                     <Button
                       type="button"
                       variant="outline"
-                      className="w-full h-14 text-base font-medium rounded-xl hover:bg-muted/50 transition-all border-2"
+                      className="w-full h-14 text-base font-medium rounded-xl hover:bg-muted/50 transition-all border-2 hover:border-primary/30 hover:shadow-lg"
                       onClick={handleGoogleSignIn}
                       disabled={googleLoading || loading || appleLoading}
                     >
@@ -638,11 +702,11 @@ export default function Auth() {
                   </motion.div>
 
                   {/* Apple Button */}
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
                     <Button
                       type="button"
                       variant="outline"
-                      className="w-full h-14 text-base font-medium rounded-xl hover:bg-muted/50 transition-all border-2"
+                      className="w-full h-14 text-base font-medium rounded-xl hover:bg-muted/50 transition-all border-2 hover:border-primary/30 hover:shadow-lg"
                       onClick={handleAppleSignIn}
                       disabled={appleLoading || loading || googleLoading}
                     >
@@ -675,34 +739,37 @@ export default function Auth() {
                         setErrors({});
                         setFormData({ ...formData, password: '', confirmPassword: '' });
                       }}
-                      className="text-primary font-semibold hover:underline transition-all"
+                      className="text-primary font-semibold hover:underline transition-all hover:text-primary/80"
                     >
                       {isLogin ? t('auth.signup') : t('auth.login')}
                     </button>
                   </p>
                 </motion.div>
-              </div>
-            </motion.div>
+              </GlassCard>
+            </NeonBorder>
 
-            {/* Security badges */}
+            {/* Security badges with enhanced design */}
             <motion.div
-              className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground"
+              className="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-full">
-                <Shield className="w-4 h-4 text-green-500" />
-                <span>{t('auth.secureLogin')}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-full">
-                <Fingerprint className="w-4 h-4 text-blue-500" />
-                <span>256-bit SSL</span>
-              </div>
-              <div className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-full">
-                <CheckCircle2 className="w-4 h-4 text-teal-500" />
-                <span>GDPR Compliant</span>
-              </div>
+              {[
+                { icon: Shield, text: t('auth.secureLogin'), color: 'text-green-500' },
+                { icon: Fingerprint, text: '256-bit SSL', color: 'text-blue-500' },
+                { icon: Award, text: 'SOC2 Certified', color: 'text-purple-500' },
+                { icon: CheckCircle2, text: 'GDPR', color: 'text-teal-500' },
+              ].map((badge, i) => (
+                <motion.div
+                  key={i}
+                  className="flex items-center gap-2 bg-muted/50 px-3 py-2 rounded-full border border-border/50 hover:border-primary/30 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <badge.icon className={`w-4 h-4 ${badge.color}`} />
+                  <span>{badge.text}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
         </div>
