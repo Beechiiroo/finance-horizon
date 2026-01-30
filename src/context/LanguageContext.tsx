@@ -92,6 +92,8 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.createAccount': 'Create Account',
     'auth.loginSubtitle': 'Sign in to access your financial dashboard',
     'auth.signupSubtitle': 'Start managing your finances today',
+    'auth.orContinueWith': 'Or continue with',
+    'auth.continueWithGoogle': 'Continue with Google',
     
     // AI Assistant
     'ai.title': 'AI Financial Assistant',
@@ -206,6 +208,8 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.createAccount': 'Créer un Compte',
     'auth.loginSubtitle': 'Connectez-vous pour accéder à votre tableau de bord',
     'auth.signupSubtitle': 'Commencez à gérer vos finances aujourd\'hui',
+    'auth.orContinueWith': 'Ou continuer avec',
+    'auth.continueWithGoogle': 'Continuer avec Google',
     
     // AI Assistant
     'ai.title': 'Assistant IA Financier',
@@ -320,6 +324,8 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.createAccount': 'Crear Cuenta',
     'auth.loginSubtitle': 'Inicia sesión para acceder a tu panel financiero',
     'auth.signupSubtitle': 'Comienza a gestionar tus finanzas hoy',
+    'auth.orContinueWith': 'O continuar con',
+    'auth.continueWithGoogle': 'Continuar con Google',
     
     // AI Assistant
     'ai.title': 'Asistente IA Financiero',
@@ -434,6 +440,8 @@ const translations: Record<Language, Record<string, string>> = {
     'auth.createAccount': 'إنشاء حساب',
     'auth.loginSubtitle': 'سجل الدخول للوصول إلى لوحة التحكم المالية',
     'auth.signupSubtitle': 'ابدأ في إدارة أموالك اليوم',
+    'auth.orContinueWith': 'أو المتابعة باستخدام',
+    'auth.continueWithGoogle': 'المتابعة مع Google',
     
     // AI Assistant
     'ai.title': 'المساعد المالي الذكي',
