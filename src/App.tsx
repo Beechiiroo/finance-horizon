@@ -9,6 +9,7 @@ import { NotificationProvider } from "@/context/NotificationContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { AnimatePresence } from "framer-motion";
+import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Accounting from "./pages/Accounting";
 import Invoices from "./pages/Invoices";
@@ -45,9 +46,11 @@ function AppRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes>
-        <Route path="/auth" element={user ? <Navigate to="/" replace /> : <Auth />} />
+        {/* Landing page for non-authenticated users */}
+        <Route path="/" element={user ? <Navigate to="/dashboard" replace /> : <Landing />} />
+        <Route path="/auth" element={user ? <Navigate to="/dashboard" replace /> : <Auth />} />
         <Route
-          path="/"
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
