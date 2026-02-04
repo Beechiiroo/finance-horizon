@@ -11,7 +11,8 @@ import {
   ChevronRight,
   Moon,
   Sun,
-  LogOut
+  LogOut,
+  User
 } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSidebarState } from '@/context/SidebarContext';
@@ -21,11 +22,12 @@ import { useAuth } from '@/context/AuthContext';
 import { cn } from '@/lib/utils';
 
 const menuItems = [
-  { icon: LayoutDashboard, labelKey: 'nav.dashboard', path: '/' },
+  { icon: LayoutDashboard, labelKey: 'nav.dashboard', path: '/dashboard' },
   { icon: BookOpen, labelKey: 'nav.accounting', path: '/accounting' },
   { icon: FileText, labelKey: 'nav.invoices', path: '/invoices' },
   { icon: Wallet, labelKey: 'nav.budgets', path: '/budgets' },
   { icon: BarChart3, labelKey: 'nav.reports', path: '/reports' },
+  { icon: User, labelKey: 'settings.profile', path: '/profile' },
   { icon: Settings, labelKey: 'nav.settings', path: '/settings' },
 ];
 
