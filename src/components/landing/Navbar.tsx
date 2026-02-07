@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import financeErpLogo from '@/assets/finance-erp-logo.png';
+import financeHorizonLogo from '@/assets/finance-horizon-logo.png';
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -41,7 +41,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
-              <img src={financeErpLogo} alt="Finance-Horizon" className="h-10 w-10" />
+              <img src={financeHorizonLogo} alt="Finance-Horizon" className="h-10 w-10 rounded-lg" />
               <span className="text-xl font-bold">Finance-Horizon</span>
             </a>
 

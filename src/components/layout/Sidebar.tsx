@@ -61,8 +61,8 @@ export function Sidebar() {
           animate={{ opacity: isCollapsed ? 0 : 1, width: isCollapsed ? 0 : 'auto' }}
           className="flex items-center gap-3 overflow-hidden"
         >
-          <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">F</span>
+          <div className="w-10 h-10 rounded-xl overflow-hidden">
+            <img src="/finance-horizon-logo.png" alt="FH" className="w-full h-full object-cover" />
           </div>
           <div className="whitespace-nowrap">
             <h1 className="font-bold text-sidebar-foreground">Finance</h1>

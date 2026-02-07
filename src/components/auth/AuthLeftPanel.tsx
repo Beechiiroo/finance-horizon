@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Fingerprint, Scan, TrendingUp, Users, Zap } from 'lucide-react';
-import financeErpLogo from '@/assets/finance-erp-logo.png';
+import financeHorizonLogo from '@/assets/finance-horizon-logo.png';
 
 interface AuthLeftPanelProps {
   isLogin: boolean;
@@ -90,10 +90,10 @@ export function AuthLeftPanel({ isLogin }: AuthLeftPanelProps) {
             whileHover={{ scale: 1.05, rotate: 5 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <img src={financeErpLogo} alt="Logo" className="w-9 h-9" />
+            <img src={financeHorizonLogo} alt="Logo" className="w-9 h-9 rounded-lg" />
           </motion.div>
           <div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">Finance ERP</h1>
+            <h1 className="text-2xl font-bold text-white tracking-tight">Finance-Horizon</h1>
             <p className="text-xs text-white/40 tracking-wide uppercase">Enterprise Platform</p>
           </div>
         </motion.div>
