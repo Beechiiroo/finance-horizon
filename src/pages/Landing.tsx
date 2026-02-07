@@ -4,7 +4,9 @@ import { HeroSection } from '@/components/landing/HeroSection';
 import { WhyChooseSection } from '@/components/landing/WhyChooseSection';
 import { ModulesSection } from '@/components/landing/ModulesSection';
 import { WorkflowSection } from '@/components/landing/WorkflowSection';
+import { InnovationsSection } from '@/components/landing/InnovationsSection';
 import { UIUXSection } from '@/components/landing/UIUXSection';
+import { PricingSection } from '@/components/landing/PricingSection';
 import { TeamSection } from '@/components/landing/TeamSection';
 import { TestimonialsSection } from '@/components/landing/TestimonialsSection';
 import { BlogSection } from '@/components/landing/BlogSection';
@@ -26,7 +28,9 @@ export default function Landing() {
         <section id="workflow">
           <WorkflowSection />
         </section>
+        <InnovationsSection />
         <UIUXSection />
+        <PricingSection />
         <section id="about">
           <TeamSection />
         </section>

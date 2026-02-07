@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { LanguageSwitcher } from '@/components/language/LanguageSwitcher';
 import { AuthLeftPanel } from '@/components/auth/AuthLeftPanel';
 import { AuthForm } from '@/components/auth/AuthForm';
-import financeErpLogo from '@/assets/finance-erp-logo.png';
+import financeHorizonLogo from '@/assets/finance-horizon-logo.png';
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -33,7 +33,7 @@ export default function Auth() {
             {/* Mobile logo */}
             <div className="lg:hidden mb-8 flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                <img src={financeErpLogo} alt="Logo" className="w-7 h-7" />
+                <img src={financeHorizonLogo} alt="Logo" className="w-7 h-7 rounded-lg" />
               </div>
               <div>
                 <span className="text-xl font-bold">Finance ERP</span>

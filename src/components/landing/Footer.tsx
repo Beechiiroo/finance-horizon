@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Heart } from 'lucide-react';
-import financeErpLogo from '@/assets/finance-erp-logo.png';
+import financeHorizonLogo from '@/assets/finance-horizon-logo.png';
 
 const footerLinks = {
   product: [
@@ -32,7 +32,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src={financeErpLogo} alt="Finance-Horizon" className="h-10 w-10" />
+              <img src={financeHorizonLogo} alt="Finance-Horizon" className="h-10 w-10 rounded-lg" />
               <span className="text-xl font-bold">Finance-Horizon</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">

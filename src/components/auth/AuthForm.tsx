@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import { z } from 'zod';
 import { lovable } from '@/integrations/lovable';
 import { PasswordStrength } from '@/components/auth/PasswordStrength';
+import { HumanVerification } from '@/components/auth/HumanVerification';
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -44,6 +45,7 @@ export function AuthForm({ isLogin, setIsLogin }: AuthFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [googleLoading, setGoogleLoading] = useState(false);
   const [appleLoading, setAppleLoading] = useState(false);
+  const [humanVerified, setHumanVerified] = useState(false);
 
   const { signIn, signUp } = useAuth();
   const { t } = useLanguage();
@@ -97,8 +99,11 @@ export function AuthForm({ isLogin, setIsLogin }: AuthFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!humanVerified) {
+      toast.error('Please complete the human verification first');
+      return;
+    }
     if (!validateForm()) return;
-    setLoading(true);
     try {
       if (isLogin) {
         const { error } = await signIn(formData.email, formData.password);
@@ -312,6 +317,9 @@ export function AuthForm({ isLogin, setIsLogin }: AuthFormProps) {
             </label>
           </div>
         )}
+
+        {/* Human Verification */}
+        <HumanVerification onVerified={setHumanVerified} verified={humanVerified} />
 
         <Button 
           type="submit" 
