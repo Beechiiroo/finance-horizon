@@ -136,6 +136,7 @@ export default {
         "count-up": "count-up 0.5s ease-out",
         shimmer: "shimmer 2s infinite linear",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        gradient: "gradient-rotate 8s ease infinite",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
